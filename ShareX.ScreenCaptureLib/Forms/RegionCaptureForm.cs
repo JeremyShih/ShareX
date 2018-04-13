@@ -1258,7 +1258,7 @@ namespace ShareX.ScreenCaptureLib
             //}
             if (y < currentScreenRect0Based.Top)
                 y = mousePos.Y + cursorOffsetY;
-
+            SetMagnifierPosition(Options.MagnifierRelativePosition, mousePos, , out x, out y);
             if (Options.ShowMagnifier)
             {
                 using (GraphicsQualityManager quality = new GraphicsQualityManager(g))
@@ -1346,15 +1346,33 @@ namespace ShareX.ScreenCaptureLib
             return bmp;
         }
 
-        private void SetMagnifierPosition(MagnifierRelativePosition position, out int x, out int y)
+        private void SetMagnifierPosition(MagnifierRelativePosition position, Point mousePos,int cursorOffsetX,int cursorOffsetY,Size totalSize, out int x, out int y)
         {
             x = y = 0;
+            //int x = mousePos.X - cursorOffsetX - totalSize.Width;
+
+            //if (x > currentScreenRect0Based.Right - totalSize.Width)
+            //{
+            //    x = mousePos.X - cursorOffsetX - totalSize.Width;
+            //}
+            //if (x < currentScreenRect0Based.Left)
+            //    x = mousePos.X + cursorOffsetX;
+
+            //int y = mousePos.Y - cursorOffsetY - totalSize.Height;
+
+            //if (y > currentScreenRect0Based.Bottom - totalSize.Height)
+            //{
+            //    y = mousePos.Y - cursorOffsetY - totalSize.Height;
+            //}
+            //if (y < currentScreenRect0Based.Top)
+            //    y = mousePos.Y + cursorOffsetY;
             switch (position)
             {
                 case MagnifierRelativePosition.LowerRight:
 
                     break;
                 case MagnifierRelativePosition.UpperLeft:
+                    x = mousePos.X - cursorOffsetX - totalSize.Width;
                     break;
             }
         }
