@@ -1241,18 +1241,26 @@ namespace ShareX.ScreenCaptureLib
                 itemCount++;
             }
 
-            int x = mousePos.X + cursorOffsetX;
+            int x = mousePos.X - cursorOffsetX - totalSize.Width;
 
             if (x + totalSize.Width > currentScreenRect0Based.Right)
             {
                 x = mousePos.X - cursorOffsetX - totalSize.Width;
             }
+            else if (x - totalSize.Width < currentScreenRect0Based.Left)
+            {
+                x = mousePos.X + cursorOffsetX;
+            }
 
-            int y = mousePos.Y + cursorOffsetY;
+            int y = mousePos.Y - cursorOffsetY - totalSize.Height;
 
             if (y + totalSize.Height > currentScreenRect0Based.Bottom)
             {
                 y = mousePos.Y - cursorOffsetY - totalSize.Height;
+            }
+            else if (y - totalSize.Height < currentScreenRect0Based.Top)
+            {
+                y = mousePos.Y + cursorOffsetY;
             }
 
             if (Options.ShowMagnifier)
