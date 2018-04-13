@@ -268,6 +268,8 @@ namespace ShareX
             cbRegionCaptureShowMagnifier.Checked = TaskSettings.CaptureSettings.SurfaceOptions.ShowMagnifier;
             cbRegionCaptureUseSquareMagnifier.Enabled = nudRegionCaptureMagnifierPixelCount.Enabled = nudRegionCaptureMagnifierPixelSize.Enabled = TaskSettings.CaptureSettings.SurfaceOptions.ShowMagnifier;
             cbRegionCaptureUseSquareMagnifier.Checked = TaskSettings.CaptureSettings.SurfaceOptions.UseSquareMagnifier;
+            cbRegionCaptureMagnifierRelativePosition.Items.AddRange(Helpers.GetLocalizedEnumDescriptions<MagnifierRelativePosition>());
+            cbRegionCaptureMagnifierRelativePosition.SelectedIndex = (int)TaskSettings.CaptureSettings.SurfaceOptions.MagnifierRelativePosition;
             nudRegionCaptureMagnifierPixelCount.Minimum = RegionCaptureOptions.MagnifierPixelCountMinimum;
             nudRegionCaptureMagnifierPixelCount.Maximum = RegionCaptureOptions.MagnifierPixelCountMaximum;
             nudRegionCaptureMagnifierPixelCount.SetValue(TaskSettings.CaptureSettings.SurfaceOptions.MagnifierPixelCount);
@@ -985,6 +987,11 @@ namespace ShareX
         private void cbRegionCaptureUseSquareMagnifier_CheckedChanged(object sender, EventArgs e)
         {
             TaskSettings.CaptureSettings.SurfaceOptions.UseSquareMagnifier = cbRegionCaptureUseSquareMagnifier.Checked;
+        }
+
+        private void cbRegionCaptureMagnifierRelativePosition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TaskSettings.CaptureSettings.SurfaceOptions.MagnifierRelativePosition = (MagnifierRelativePosition)cbRegionCaptureMagnifierRelativePosition.SelectedIndex;
         }
 
         private void nudRegionCaptureMagnifierPixelCount_ValueChanged(object sender, EventArgs e)

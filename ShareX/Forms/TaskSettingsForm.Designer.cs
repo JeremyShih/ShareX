@@ -224,6 +224,7 @@
             this.btnActionsRemove = new System.Windows.Forms.Button();
             this.chkOverrideActions = new System.Windows.Forms.CheckBox();
             this.tpWatchFolders = new System.Windows.Forms.TabPage();
+            this.btnWatchFolderEdit = new System.Windows.Forms.Button();
             this.cbWatchFolderEnabled = new System.Windows.Forms.CheckBox();
             this.lvWatchFolderList = new System.Windows.Forms.ListView();
             this.chWatchFolderFolderPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -240,7 +241,8 @@
             this.pgTaskSettings = new System.Windows.Forms.PropertyGrid();
             this.chkOverrideAdvancedSettings = new System.Windows.Forms.CheckBox();
             this.tttvMain = new ShareX.HelpersLib.TabToTreeView();
-            this.btnWatchFolderEdit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbRegionCaptureMagnifierRelativePosition = new System.Windows.Forms.ComboBox();
             this.tcTaskSettings.SuspendLayout();
             this.tpTask.SuspendLayout();
             this.cmsDestinations.SuspendLayout();
@@ -296,11 +298,13 @@
             // 
             // cmsAfterCapture
             // 
+            this.cmsAfterCapture.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAfterCapture.Name = "cmsAfterCapture";
             resources.ApplyResources(this.cmsAfterCapture, "cmsAfterCapture");
             // 
             // cmsAfterUpload
             // 
+            this.cmsAfterUpload.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAfterUpload.Name = "cmsAfterCapture";
             resources.ApplyResources(this.cmsAfterUpload, "cmsAfterUpload");
             // 
@@ -338,6 +342,7 @@
             // 
             // cmsTask
             // 
+            this.cmsTask.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsTask.Name = "cmsAfterCapture";
             resources.ApplyResources(this.cmsTask, "cmsTask");
             // 
@@ -431,6 +436,7 @@
             // 
             // cmsDestinations
             // 
+            this.cmsDestinations.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsDestinations.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiImageUploaders,
             this.tsmiTextUploaders,
@@ -1036,6 +1042,8 @@
             // tpRegionCapture
             // 
             this.tpRegionCapture.BackColor = System.Drawing.SystemColors.Window;
+            this.tpRegionCapture.Controls.Add(this.cbRegionCaptureMagnifierRelativePosition);
+            this.tpRegionCapture.Controls.Add(this.label1);
             this.tpRegionCapture.Controls.Add(this.cbRegionCaptureShowFPS);
             this.tpRegionCapture.Controls.Add(this.flpRegionCaptureFixedSize);
             this.tpRegionCapture.Controls.Add(this.cbRegionCaptureIsFixedSize);
@@ -1943,6 +1951,13 @@
             resources.ApplyResources(this.tpWatchFolders, "tpWatchFolders");
             this.tpWatchFolders.Name = "tpWatchFolders";
             // 
+            // btnWatchFolderEdit
+            // 
+            resources.ApplyResources(this.btnWatchFolderEdit, "btnWatchFolderEdit");
+            this.btnWatchFolderEdit.Name = "btnWatchFolderEdit";
+            this.btnWatchFolderEdit.UseVisualStyleBackColor = true;
+            this.btnWatchFolderEdit.Click += new System.EventHandler(this.btnWatchFolderEdit_Click);
+            // 
             // cbWatchFolderEnabled
             // 
             resources.ApplyResources(this.cbWatchFolderEnabled, "cbWatchFolderEnabled");
@@ -2060,12 +2075,18 @@
             this.tttvMain.TreeViewSize = 190;
             this.tttvMain.TabChanged += new ShareX.HelpersLib.TabToTreeView.TabChangedEventHandler(this.tttvMain_TabChanged);
             // 
-            // btnWatchFolderEdit
+            // label1
             // 
-            resources.ApplyResources(this.btnWatchFolderEdit, "btnWatchFolderEdit");
-            this.btnWatchFolderEdit.Name = "btnWatchFolderEdit";
-            this.btnWatchFolderEdit.UseVisualStyleBackColor = true;
-            this.btnWatchFolderEdit.Click += new System.EventHandler(this.btnWatchFolderEdit_Click);
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // cbRegionCaptureMagnifierRelativePosition
+            // 
+            this.cbRegionCaptureMagnifierRelativePosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRegionCaptureMagnifierRelativePosition.FormattingEnabled = true;
+            resources.ApplyResources(this.cbRegionCaptureMagnifierRelativePosition, "cbRegionCaptureMagnifierRelativePosition");
+            this.cbRegionCaptureMagnifierRelativePosition.Name = "cbRegionCaptureMagnifierRelativePosition";
+            this.cbRegionCaptureMagnifierRelativePosition.SelectedIndexChanged += new System.EventHandler(this.cbRegionCaptureMagnifierRelativePosition_SelectedIndexChanged);
             // 
             // TaskSettingsForm
             // 
@@ -2367,5 +2388,7 @@
         private System.Windows.Forms.ComboBox cbImagePNGBitDepth;
         private System.Windows.Forms.Label lblImagePNGBitDepth;
         private System.Windows.Forms.Button btnWatchFolderEdit;
+        private System.Windows.Forms.ComboBox cbRegionCaptureMagnifierRelativePosition;
+        private System.Windows.Forms.Label label1;
     }
 }

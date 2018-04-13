@@ -202,6 +202,12 @@ namespace ShareX.ScreenCaptureLib
         CaptureActiveMonitor
     }
 
+    public enum MagnifierRelativePosition
+    {
+        LowerRight,
+        UpperLeft
+    }
+
     public enum ShapeCategory
     {
         Region,

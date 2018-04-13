@@ -62,6 +62,7 @@ namespace ShareX.ScreenCaptureLib
         public bool ShowInfo = true;
         public bool ShowMagnifier = true;
         public bool UseSquareMagnifier = false;
+        public MagnifierRelativePosition MagnifierRelativePosition = MagnifierRelativePosition.LowerRight;
         public int MagnifierPixelCount = 15; // Must be odd number like 11, 13, 15 etc.
         public int MagnifierPixelSize = 10;
         public bool ShowCrosshair = false;

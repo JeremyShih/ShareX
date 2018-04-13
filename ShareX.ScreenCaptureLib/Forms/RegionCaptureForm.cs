@@ -1241,19 +1241,23 @@ namespace ShareX.ScreenCaptureLib
                 itemCount++;
             }
 
-            int x = mousePos.X + cursorOffsetX;
+            int x = mousePos.X - cursorOffsetX - totalSize.Width;
 
-            if (x + totalSize.Width > currentScreenRect0Based.Right)
-            {
-                x = mousePos.X - cursorOffsetX - totalSize.Width;
-            }
+            //if (x > currentScreenRect0Based.Right - totalSize.Width)
+            //{
+            //    x = mousePos.X - cursorOffsetX - totalSize.Width;
+            //}
+            if (x < currentScreenRect0Based.Left)
+                x = mousePos.X + cursorOffsetX;
 
-            int y = mousePos.Y + cursorOffsetY;
+            int y = mousePos.Y - cursorOffsetY - totalSize.Height;
 
-            if (y + totalSize.Height > currentScreenRect0Based.Bottom)
-            {
-                y = mousePos.Y - cursorOffsetY - totalSize.Height;
-            }
+            //if (y > currentScreenRect0Based.Bottom - totalSize.Height)
+            //{
+            //    y = mousePos.Y - cursorOffsetY - totalSize.Height;
+            //}
+            if (y < currentScreenRect0Based.Top)
+                y = mousePos.Y + cursorOffsetY;
 
             if (Options.ShowMagnifier)
             {
@@ -1340,6 +1344,19 @@ namespace ShareX.ScreenCaptureLib
             }
 
             return bmp;
+        }
+
+        private void SetMagnifierPosition(MagnifierRelativePosition position, out int x, out int y)
+        {
+            x = y = 0;
+            switch (position)
+            {
+                case MagnifierRelativePosition.LowerRight:
+
+                    break;
+                case MagnifierRelativePosition.UpperLeft:
+                    break;
+            }
         }
 
         private void DrawRuler(Graphics g, Rectangle rect, Pen pen, int rulerSize, int rulerWidth)
